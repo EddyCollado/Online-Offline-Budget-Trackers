@@ -7,7 +7,7 @@ const FILES_TO_CACHE = [
 ];
 
 const CACHE_NAME = "static-cache-v2";
-const DATA_CACHE_NAME = 'data-cache-v1';
+const DATA_CACHE_NAME = "data-cache-v1";
 
     self.addEventListener("install", function(evt) {
         evt.waitUntil(
@@ -19,7 +19,7 @@ const DATA_CACHE_NAME = 'data-cache-v1';
         self.skipWaiting();
     });
 
-    self.addEventListener('activate', function(evt) {
+    self.addEventListener("activate", function(evt) {
         evt.waitUntil(
             caches.keys().then(keyList => {
                 return Promise.all(
@@ -36,7 +36,7 @@ const DATA_CACHE_NAME = 'data-cache-v1';
     });
 
 // 5.Fetch Files
-self.addEventListener('fetch', evt =>{
+self.addEventListener("fetch", evt =>{
     if (evt.request.url.includes('/api/')) {
         console.log('[Service Worker] Fetch (data)', evt.request.url);
             evt.respondWith(

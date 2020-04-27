@@ -1,5 +1,5 @@
 let db;
-const request = indexDB.open("budget", 1);
+const request = indexedDB.open("budget", 1);
 
 request.onupgradeneeded = function(event) {
     const db = event.target.result;
@@ -35,7 +35,7 @@ function checkDatabase() {
     getAll.onsuccess = function() {
         if (getAll.result.length > 0) {
             fetch("/api/transaction/bulk", {
-                methond: "POST",
+                method: "POST",
                 body: JSON.stringify(getAll.result),
                 headers: {
                     Accept: "application/json, text/plain, */*",
@@ -52,5 +52,6 @@ function checkDatabase() {
         }
     };
 }
+
 
 window.addEventListener("online", checkDatabase);

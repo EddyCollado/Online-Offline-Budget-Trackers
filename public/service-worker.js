@@ -37,7 +37,7 @@ const DATA_CACHE_NAME = "data-cache-v1";
 
 // 5.Fetch Files
 self.addEventListener("fetch", evt =>{
-    if (evt.request.url.includes('/api/')) {
+    if (evt.request.url.includes("/api/")) {
         console.log('[Service Worker] Fetch (data)', evt.request.url);
             evt.respondWith(
                 caches.open(DATA_CACHE_NAME).then(cache => {

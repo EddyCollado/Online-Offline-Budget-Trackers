@@ -1,15 +1,15 @@
 const FILES_TO_CACHE = [
     "/",
+    "/db.js",
     "/index.html",
     "/index.js",
-    "/db.js",
     "/style.css"
 ];
 
-const CACHE_NAME = "static-cache-v13";
-const DATA_CACHE_NAME = 'data-cache-v8';
+const CACHE_NAME = "static-cache-v2";
+const DATA_CACHE_NAME = 'data-cache-v1';
 
-    self.addEventListener('install', function(evt) {
+    self.addEventListener("install", function(evt) {
         evt.waitUntil(
             caches.open(CACHE_NAME).then(cache => {
                 console.log("pre-cached successful");

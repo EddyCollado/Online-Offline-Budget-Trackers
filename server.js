@@ -3,7 +3,18 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const compression = require("compression");
 
-var PORT = process.env.PORT || 3000;
+var MONGODB_URI = process.env.MONGODB_URL || "mongodb://localhost/indexDB";
+
+const options = {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+  family: 4
+};
+
+mongoose.connect(MONGODB_URI, options)
+
+const PORT = 3000;
 
 const app = express();
 
